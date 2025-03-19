@@ -524,7 +524,7 @@ class DialogUtils {
                     WindowManager.LayoutParams.MATCH_PARENT,
                     WindowManager.LayoutParams.MATCH_PARENT
                 )
-                setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+//                setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
                 val d: Drawable = ColorDrawable(
                     context.getColor(R.color.bc_black)

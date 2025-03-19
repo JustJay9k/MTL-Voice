@@ -22,6 +22,7 @@ package org.linphone.ui.welcome
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+// import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -63,6 +64,15 @@ class WelcomeActivity : GenericActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.welcome_activity)
         binding.lifecycleOwner = this
+
+        binding = WelcomeActivityBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//        val skipButton = findViewById<TextView>(R.id.skipButton)
+//
+//        skipButton.setOnClickListener{
+//            Log.i("$TAG", "User clicked on 'Skip' button, going to Assistant")
+//            goToAssistant()
+//        }
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())

@@ -44,6 +44,7 @@ import org.linphone.core.LogLevel
 import org.linphone.core.VFS
 import org.linphone.core.tools.Log
 
+@Suppress("DEPRECATION")
 @MainThread
 class LinphoneApplication : Application(), SingletonImageLoader.Factory {
     companion object {

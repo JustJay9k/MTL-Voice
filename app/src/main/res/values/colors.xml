@@ -93,4 +93,5 @@
     <color name="purple_main_300">#FF99FF</color>
     <color name="purple_main_500">#800080</color>
     <color name="purple_main_700">#520052</color>
+    <color name="my_button_color">#302E77</color>
 </resources>

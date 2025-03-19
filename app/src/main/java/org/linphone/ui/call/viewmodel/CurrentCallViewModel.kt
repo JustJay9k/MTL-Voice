@@ -740,7 +740,10 @@ class CurrentCallViewModel
                     else -> device.deviceName
                 }
                 val currentDevice = currentCall.outputAudioDevice
-                val isCurrentlyInUse = device.type == currentDevice?.type && device.deviceName == currentDevice.deviceName
+                val isCurrentlyInUse = currentDevice?.let {
+                    device.type == it.type && device.deviceName == it.deviceName
+                } ?: false
+
                 val model = AudioDeviceModel(device, name, device.type, isCurrentlyInUse, true) {
                     // onSelected
                     coreContext.postOnCoreThread {
@@ -1346,14 +1349,13 @@ class CurrentCallViewModel
 
     @WorkerThread
     private fun createCurrentCallConversation(call: Call) {
-        val localAddress = call.callLog.localAddress
         val remoteAddress = call.remoteAddress
         val participants = arrayOf(remoteAddress)
         val core = call.core
         operationInProgress.postValue(true)
 
         val params = getChatRoomParams(call) ?: return // TODO: show error to user
-        val conversation = core.createChatRoom(params, localAddress, participants)
+        val conversation = core.createChatRoom(params, participants)
         if (conversation != null) {
             if (params.chatParams?.backend == ChatRoom.Backend.FlexisipChat) {
                 if (conversation.state == ChatRoom.State.Created) {

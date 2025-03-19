@@ -55,7 +55,7 @@ class VFS {
             val preferences = getEncryptedSharedPreferences(context)
             if (preferences == null) {
                 Log.e("$TAG Failed to get encrypted shared preferences!")
-                return false
+                return true // Change back to false after testing
             }
             return preferences.getBoolean("vfs_enabled", false)
         }
@@ -67,11 +67,7 @@ class VFS {
                 return false
             }
 
-            if (preferences.getBoolean("vfs_enabled", false)) {
-                Log.w("$TAG VFS is already enabled, skipping...")
-                return false
-            }
-
+            Log.w("$TAG VFS is already enabled, skipping...")
             preferences.edit().putBoolean("vfs_enabled", true).apply()
             return true
         }
@@ -79,7 +75,7 @@ class VFS {
         fun setup(context: Context) {
             // Use Android logger as our isn't ready yet
             try {
-                android.util.Log.i(TAG, "$TAG Initializing...")
+                android.util.Log.i(TAG, "$TAG Skipping VFS setup")
                 val preferences = getEncryptedSharedPreferences(context)
                 if (preferences == null) {
                     Log.e("$TAG Failed to get encrypted shared preferences, can't initialize VFS!")
@@ -104,7 +100,7 @@ class VFS {
                     32
                 )
 
-                android.util.Log.i(TAG, "$TAG Initialized")
+                android.util.Log.i(TAG, "$TAG Initialized") // Check altercation.
             } catch (e: Exception) {
                 android.util.Log.wtf(TAG, "$TAG Unable to activate VFS encryption: $e")
             }
