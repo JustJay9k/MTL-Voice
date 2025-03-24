@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fillViewport="true">
@@ -10,87 +11,68 @@
         android:layout_width="match_parent">
 
         <ImageView
-            android:id="@+id/header"
+            android:id="@+id/imageView9"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:src="@drawable/mountains"
-            android:contentDescription="@null"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/title_second_line"
-            app:tint="?attr/color_main1_500"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/default_text_style_800"
-            android:id="@+id/title_first_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/welcome_page_title"
-            android:textColor="?attr/color_on_main"
-            android:textSize="36sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/default_text_style_800"
-            android:id="@+id/title_second_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="65dp"
-            android:paddingBottom="16dp"
-            android:text="@string/welcome_page_subtitle"
-            android:textColor="?attr/color_on_main"
-            android:textSize="26sp"
-            app:layout_constraintTop_toBottomOf="@id/title_first_line"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintVertical_bias="0.664"
+            app:srcCompat="@drawable/yelloww" />
 
         <ImageView
-            android:id="@+id/image"
+            android:id="@+id/imageView7"
+            android:layout_width="279dp"
+            android:layout_height="298dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.097"
+            app:srcCompat="@drawable/greenly" />
+
+        <ImageView
+            android:id="@+id/imageView8"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/welcome_icon_size"
-            android:layout_marginTop="110dp"
-            android:src="@drawable/welcome_secured_logo"
-            android:contentDescription="@null"
-            app:tint="?attr/color_main1_500"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintTop_toBottomOf="@id/title_second_line"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/default_text_style_800"
-            android:id="@+id/page_title"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/welcome_page_2_title"
-            android:textColor="?attr/color_main2_600"
-            android:textSize="29sp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432"
+            app:srcCompat="@drawable/yellow" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            style="@style/default_text_style"
-            android:id="@+id/message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/welcome_page_2_message"
-            android:textColor="?attr/color_main2_600"
-            android:textSize="14sp"
-            android:gravity="center"
-            app:layout_constraintTop_toBottomOf="@id/page_title"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="330dp"
+            android:layout_height="85dp"
+            android:text="Stay in touch with quick text messages and see when your contacts are online"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.604"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="253dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_button_background"
+            android:text="Next"
+            android:textColor="#FBF023"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.926" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

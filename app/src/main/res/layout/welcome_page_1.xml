@@ -10,16 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="291dp"
-            android:layout_height="254dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.094"
-            app:srcCompat="@drawable/phone" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -30,8 +20,68 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.121"
+            app:layout_constraintVertical_bias="0.109"
             app:srcCompat="@drawable/purple" />
+
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.406"
+            app:srcCompat="@drawable/pleft" />
+
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="291dp"
+            android:layout_height="254dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.575"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.199"
+            app:srcCompat="@drawable/phonee" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="251dp"
+            android:layout_height="126dp"
+            android:text="Enjoy high-quality calls over Wi-Fi or cellular data, wherever you are."
+            android:textColor="#383333"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.564" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="253dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_button_background"
+            android:text="Next"
+            android:textColor="#FBF023"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.926" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
