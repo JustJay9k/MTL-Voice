@@ -29,29 +29,30 @@
 
         <ImageView
             android:id="@+id/back"
-            android:onClick="@{backClickListener}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_go_back_icon"
+            android:onClick="@{backClickListener}"
             android:padding="15dp"
             android:src="@drawable/caret_left"
-            android:contentDescription="@string/content_description_go_back_icon"
-            app:tint="?attr/color_main1_500"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/title" />
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:tint="#302E77" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/main_page_title_style"
             android:id="@+id/title"
+            style="@style/main_page_title_style"
             android:layout_width="0dp"
             android:layout_height="@dimen/top_bar_height"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="@string/manage_account_choose_mode_title"
+            android:textColor="#302E77"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/back"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
             android:layout_width="0dp"

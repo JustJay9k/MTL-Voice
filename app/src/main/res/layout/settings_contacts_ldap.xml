@@ -20,17 +20,17 @@
 
         <ImageView
             android:id="@+id/back"
-            android:onClick="@{backClickListener}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_go_back_icon"
+            android:onClick="@{backClickListener}"
             android:padding="15dp"
             android:src="@drawable/caret_left"
-            android:contentDescription="@string/content_description_go_back_icon"
-            app:tint="?attr/color_main1_500"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/title" />
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:tint="#302E77" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/main_page_title_style"
@@ -508,18 +508,18 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_server"
-            android:onClick="@{() -> viewModel.addServer()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:contentDescription="@string/content_description_ldap_save"
+            android:onClick="@{() -> viewModel.addServer()}"
             android:src="@{viewModel.isEdit ? @drawable/check : @drawable/plus_circle, default=@drawable/plus_circle}"
-            app:tint="?attr/color_on_main"
-            app:backgroundTint="?attr/color_main1_500"
-            app:shapeAppearanceOverlay="@style/rounded"
+            app:backgroundTint="#302E77"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:shapeAppearanceOverlay="@style/rounded"
+            app:tint="?attr/color_on_main" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

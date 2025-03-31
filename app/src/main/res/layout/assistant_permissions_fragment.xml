@@ -218,7 +218,7 @@
                 android:paddingEnd="20dp"
                 android:text="Skip"
                 android:textColor="#302E77"
-                app:layout_constraintBottom_toTopOf="@id/grant_all_permissions"
+                app:layout_constraintBottom_toTopOf="@id/push_next"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -227,7 +227,7 @@
                 app:layout_constraintWidth_max="@dimen/button_max_width" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/grant_all_permissions"
+                android:id="@+id/push_next"
                 style="@style/primary_button_label_style"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -237,7 +237,7 @@
                 android:onClick="@{grantAllClickListener}"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:text="Allow Acess"
+                android:text="Allow Access"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

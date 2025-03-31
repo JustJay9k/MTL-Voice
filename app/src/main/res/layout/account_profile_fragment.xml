@@ -42,33 +42,33 @@
         android:layout_height="match_parent"
         android:background="?attr/color_background_contrast_in_dark_mode">
 
-            <ImageView
-                android:id="@+id/back"
-                android:onClick="@{backClickListener}"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:adjustViewBounds="true"
-                android:padding="15dp"
-                android:src="@drawable/caret_left"
-                android:contentDescription="@string/content_description_go_back_icon"
-                app:tint="?attr/color_main1_500"
-                app:layout_constraintBottom_toBottomOf="@id/title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/title" />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_go_back_icon"
+            android:onClick="@{backClickListener}"
+            android:padding="15dp"
+            android:src="@drawable/caret_left"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:tint="#302E77" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/section_header_style"
-                android:id="@+id/title"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/top_bar_height"
-                android:layout_marginStart="10dp"
-                android:gravity="center_vertical"
-                android:text="@string/manage_account_title"
-                android:textColor="?attr/color_main1_500"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toStartOf="@id/show_menu"
-                app:layout_constraintStart_toEndOf="@id/back"
-                app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            style="@style/section_header_style"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/top_bar_height"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/manage_account_title"
+            android:textColor="#302E77"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/show_menu"
+            app:layout_constraintStart_toEndOf="@id/back"
+            app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/show_menu"

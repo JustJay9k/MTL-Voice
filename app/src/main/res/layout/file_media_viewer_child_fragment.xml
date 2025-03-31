@@ -81,16 +81,16 @@
             android:layout_marginEnd="16dp"
             android:max="@{viewModel.duration, default=100}"
             android:progress="@{viewModel.position, default=75}"
-            app:trackCornerRadius="5dp"
-            app:trackThickness="10dp"
-            app:trackColor="?attr/color_main1_100"
-            app:indicatorColor="?attr/color_main1_500"
-            app:trackStopIndicatorSize="0dp"
+            app:indicatorColor="#302E77"
             app:indicatorTrackGapSize="0dp"
-            app:layout_constraintTop_toTopOf="@id/play_pause_audio_playback"
             app:layout_constraintBottom_toBottomOf="@id/play_pause_audio_playback"
+            app:layout_constraintEnd_toStartOf="@id/duration"
             app:layout_constraintStart_toEndOf="@id/play_pause_audio_playback"
-            app:layout_constraintEnd_toStartOf="@id/duration"/>
+            app:layout_constraintTop_toTopOf="@id/play_pause_audio_playback"
+            app:trackColor="?attr/color_main1_100"
+            app:trackCornerRadius="5dp"
+            app:trackStopIndicatorSize="0dp"
+            app:trackThickness="10dp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/default_text_style_700"

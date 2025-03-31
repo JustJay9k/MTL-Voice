@@ -100,46 +100,6 @@
                 app:layout_constraintTop_toBottomOf="@id/no_chat"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:onClick="@{contactClickListener}"
-                style="@style/default_text_style_600"
-                android:id="@+id/contact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="42dp"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:text="@string/assistant_linphone_contact_us_link"
-                android:textSize="13sp"
-                android:textColor="@color/secondary_button_label_color"
-                android:gravity="center"
-                android:background="@drawable/secondary_button_background"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/message"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:onClick="@{createAccountClickListener}"
-                style="@style/secondary_button_label_style"
-                android:id="@+id/create_linphone_account"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="20dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/assistant_third_party_sip_account_create_linphone_account"
-                app:layout_constraintWidth_max="@dimen/button_max_width"
-                app:layout_constraintVertical_bias="1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/contact"
-                app:layout_constraintBottom_toTopOf="@id/continue_third_party_account_login" />
-
-            <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="@{loginClickListener}"
                 style="@style/primary_button_label_style"
                 android:id="@+id/continue_third_party_account_login"

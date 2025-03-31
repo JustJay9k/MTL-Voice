@@ -19,10 +19,11 @@
  */
 package org.linphone.ui.welcome
 
+// import android.widget.TextView
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-// import android.widget.TextView
+import android.util.Log
+import android.widget.Button
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -34,7 +35,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import org.linphone.R
-import org.linphone.core.tools.Log
 import org.linphone.databinding.WelcomeActivityBinding
 import org.linphone.ui.GenericActivity
 import org.linphone.ui.assistant.AssistantActivity
@@ -66,13 +66,7 @@ class WelcomeActivity : GenericActivity() {
         binding.lifecycleOwner = this
 
         binding = WelcomeActivityBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//        val skipButton = findViewById<TextView>(R.id.skipButton)
-//
-//        skipButton.setOnClickListener{
-//            Log.i("$TAG", "User clicked on 'Skip' button, going to Assistant")
-//            goToAssistant()
-//        }
+        setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -86,15 +80,10 @@ class WelcomeActivity : GenericActivity() {
 
         binding.dotsIndicator.attachTo(viewPager)
 
-        binding.setSkipClickListener {
-            Log.i("$TAG User clicked on 'skip' button, going to Assistant")
-            goToAssistant()
-        }
-
         binding.setNextClickListener {
             if (viewPager.currentItem == PAGES - 1) {
                 Log.i(
-                    "$TAG User clicked on 'start' button, leaving activity and going into Assistant"
+                    TAG, "$TAG User clicked on 'start' button, leaving activity and going into Assistant"
                 )
                 goToAssistant()
             } else {
@@ -111,6 +100,11 @@ class WelcomeActivity : GenericActivity() {
     override fun onPause() {
         viewPager.unregisterOnPageChangeCallback(pageChangedCallback)
         super.onPause()
+    }
+
+    override fun onDestroy() {
+        viewPager.unregisterOnPageChangeCallback(pageChangedCallback)
+        super.onDestroy()
     }
 
     private fun goToAssistant() {
@@ -134,13 +128,11 @@ class WelcomeActivity : GenericActivity() {
 
     private inner class PageChangedCallback : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
-            Log.i("$TAG Current page is [$position]")
+            Log.i(TAG, "$TAG Current page is [$position]")
             if (position == PAGES - 1) {
-                binding.next.text = AppUtils.getString(R.string.start)
-                binding.skip.visibility = View.INVISIBLE
+                (binding.next as Button).text = AppUtils.getString(R.string.start)
             } else {
-                binding.next.text = AppUtils.getString(R.string.next)
-                binding.skip.visibility = View.VISIBLE
+                (binding.next as Button).text = AppUtils.getString(R.string.next)
             }
         }
     }

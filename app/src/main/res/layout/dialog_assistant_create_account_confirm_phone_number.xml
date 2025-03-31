@@ -60,19 +60,20 @@
             app:layout_constraintTop_toBottomOf="@id/title" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:onClick="@{() -> viewModel.dismiss()}"
-            style="@style/secondary_button_label_style"
             android:id="@+id/cancel"
+            style="@style/secondary_button_label_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="15dp"
+            android:onClick="@{() -> viewModel.dismiss()}"
             android:text="@string/dialog_cancel"
-            app:layout_constraintStart_toStartOf="@id/dialog_background"
+            android:textColor="#302E77"
+            app:layout_constraintBottom_toTopOf="@id/confirm"
             app:layout_constraintEnd_toEndOf="@id/dialog_background"
-            app:layout_constraintTop_toBottomOf="@id/message"
-            app:layout_constraintBottom_toTopOf="@id/confirm"/>
+            app:layout_constraintStart_toStartOf="@id/dialog_background"
+            app:layout_constraintTop_toBottomOf="@id/message" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:onClick="@{() -> viewModel.confirm()}"
@@ -93,10 +94,11 @@
             android:id="@+id/anchor"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dialog_top_bottom_margin"
-            app:layout_constraintTop_toBottomOf="@id/confirm"
-            app:layout_constraintStart_toStartOf="@id/dialog_background"
+            android:backgroundTint="#302E77"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/dialog_background"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toStartOf="@id/dialog_background"
+            app:layout_constraintTop_toBottomOf="@id/confirm" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

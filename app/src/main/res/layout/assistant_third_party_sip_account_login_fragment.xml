@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -36,43 +37,29 @@
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <ImageView
-                android:id="@+id/header"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="19dp"
-                android:src="@drawable/mountains"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:contentDescription="@null"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/back"
-                app:layout_constraintBottom_toBottomOf="@id/title"
-                app:tint="?attr/color_main1_500"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/assistant_page_title_style"
-                android:id="@+id/title"
+                android:id="@+id/imageView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:paddingBottom="27dp"
-                android:text="@string/assistant_login_third_party_sip_account"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/purple" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/username_label"
                 style="@style/header_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="196dp"
+                android:layout_marginEnd="11dp"
                 android:text="@string/assistant_third_party_sip_account_username_or_identity"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintStart_toStartOf="@id/username"/>
+                app:layout_constraintEnd_toStartOf="@+id/imageView19"
+                app:layout_constraintHorizontal_bias="0.85"
+                app:layout_constraintStart_toStartOf="@id/username"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 style="@style/default_text_style"
@@ -266,8 +253,8 @@
                 android:id="@+id/advanced_settings_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="authentication_id_label, authentication_id, outbound_proxy_label, outbound_proxy"
-                android:visibility="@{viewModel.expandAdvancedSettings ? View.VISIBLE : View.GONE, default=gone}" />
+                android:visibility="@{viewModel.expandAdvancedSettings ? View.VISIBLE : View.GONE, default=gone}"
+                app:constraint_referenced_ids="authentication_id_label, authentication_id, outbound_proxy_label, outbound_proxy" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/authentication_id_label"
@@ -353,6 +340,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

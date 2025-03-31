@@ -22,17 +22,17 @@
 
         <ImageView
             android:id="@+id/back"
-            android:onClick="@{backClickListener}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/content_description_go_back_icon"
+            android:onClick="@{backClickListener}"
             android:padding="15dp"
             android:src="@drawable/caret_left"
-            android:contentDescription="@string/content_description_go_back_icon"
-            app:tint="?attr/color_main1_500"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/title" />
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:tint="#302E77" />
 
         <androidx.appcompat.widget.AppCompatTextView
             style="@style/main_page_title_style"

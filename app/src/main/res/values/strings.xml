@@ -5,7 +5,7 @@
 ]>
 
 <resources>
-    <string name="app_name" translatable="false">&appName;</string>
+    <string name="app_name" translatable="false">MTL Mobile</string>
 
     <!-- Not translatable strings -->
     <string name="vertical_separator" translatable="false">|</string>
@@ -172,8 +172,8 @@
 
     <!-- Main navigation items -->
     <string name="bottom_navigation_contacts_label">Contacts</string>
-    <string name="bottom_navigation_calls_label">Calls</string>
-    <string name="bottom_navigation_conversations_label">Conversations</string>
+    <string name="bottom_navigation_calls_label">Keypad</string>
+    <string name="bottom_navigation_conversations_label">Call logs</string>
     <string name="bottom_navigation_meetings_label">Meetings</string>
 
     <!-- Side menu -->

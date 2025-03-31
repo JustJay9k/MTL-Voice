@@ -11,6 +11,7 @@
         <variable
             name="nextClickListener"
             type="View.OnClickListener" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -19,11 +20,40 @@
         tools:context=".ui.welcome.WelcomeActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
+            android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_anchor="@+id/constraintLayout"
+            app:layout_anchor="@+id/next"
             app:layout_anchorGravity="center">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/pager"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/dots_indicator"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dots_indicator" />
+
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                app:dotsColor="?attr/color_main2_200"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="13dp"
+                app:dotsSpacing="5dp"
+                app:dotsWidthFactor="2.5"
+                app:layout_constraintBottom_toTopOf="@+id/push_next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintVertical_bias="0.979"
+                app:progressMode="false"
+                app:selectedDotColor="?attr/color_main1_500" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -48,19 +78,23 @@
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="259dp"
-                android:layout_height="55dp"
-                android:background="@drawable/rounded_button_background"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/push_next"
+                style="@style/primary_button_label_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="@{nextClickListener}"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:text="Next"
-                android:textColor="#FBF023"
-                android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                app:layout_constraintVertical_bias="0.93" />
+                app:layout_constraintWidth_max="@dimen/button_max_width" />
 
             <ImageView
                 android:id="@+id/imageView3"

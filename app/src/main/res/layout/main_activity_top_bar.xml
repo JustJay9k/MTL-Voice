@@ -25,42 +25,42 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_height"
-        android:background="?attr/color_main1_500">
+        android:background="#302E77">
 
         <androidx.constraintlayout.widget.Group
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="avatar, title, search_toggle"
-            android:visibility="@{viewModel.searchBarVisible ? View.GONE : View.VISIBLE}" />
+            android:visibility="@{viewModel.searchBarVisible ? View.GONE : View.VISIBLE}"
+            app:constraint_referenced_ids="avatar, title, search_toggle" />
 
         <androidx.constraintlayout.widget.Group
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="cancel_search, search, clear_field"
-            android:visibility="@{viewModel.searchBarVisible ? View.VISIBLE : View.GONE, default=gone}" />
+            android:visibility="@{viewModel.searchBarVisible ? View.VISIBLE : View.GONE, default=gone}"
+            app:constraint_referenced_ids="cancel_search, search, clear_field" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/background_barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:constraint_referenced_ids="title, search"
-            app:barrierDirection="bottom" />
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="title, search" />
 
         <include
             android:id="@+id/avatar"
-            android:onClick="@{() -> viewModel.openDrawerMenu()}"
+            layout="@layout/contact_avatar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            layout="@layout/contact_avatar"
-            bind:model="@{viewModel.account}"
+            android:onClick="@{() -> viewModel.openDrawerMenu()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            bind:model="@{viewModel.account}" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            style="@style/default_text_style_800"
             android:id="@+id/title"
+            style="@style/default_text_style_800"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="10dp"
@@ -69,21 +69,21 @@
             android:text="@{viewModel.title, default=`Title`}"
             android:textColor="?attr/color_on_main"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
             app:layout_constraintEnd_toStartOf="@id/search_toggle"
             app:layout_constraintStart_toEndOf="@id/avatar"
-            app:layout_constraintTop_toTopOf="@id/avatar"
-            app:layout_constraintBottom_toBottomOf="@id/avatar"/>
+            app:layout_constraintTop_toTopOf="@id/avatar" />
 
         <ImageView
             android:id="@+id/search_toggle"
-            android:onClick="@{() -> viewModel.openSearchBar()}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="5dp"
+            android:contentDescription="@string/content_description_open_filter"
+            android:onClick="@{() -> viewModel.openSearchBar()}"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:src="@drawable/magnifying_glass"
-            android:contentDescription="@string/content_description_open_filter"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintEnd_toStartOf="@id/extra_action"
             app:layout_constraintTop_toTopOf="@id/title"
@@ -91,14 +91,14 @@
 
         <ImageView
             android:id="@+id/extra_action"
-            android:onClick="@{extraActionClickListener}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="5dp"
+            android:contentDescription="@{extraActionContentDescription}"
+            android:onClick="@{extraActionClickListener}"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:src="@{extraActionIcon, default=@drawable/dots_three_vertical}"
-            android:contentDescription="@{extraActionContentDescription}"
             android:visibility="@{enableExtraAction ? View.VISIBLE : View.GONE, default=gone}"
             app:layout_constraintBottom_toBottomOf="@id/title"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,31 +107,31 @@
 
         <ImageView
             android:id="@+id/cancel_search"
-            android:onClick="@{() -> viewModel.closeSearchBar()}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="5dp"
+            android:contentDescription="@string/content_description_cancel_filter"
+            android:onClick="@{() -> viewModel.closeSearchBar()}"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:src="@drawable/caret_left"
-            android:contentDescription="@string/content_description_cancel_filter"
             app:layout_constraintBottom_toBottomOf="@id/search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/search"
             app:tint="?attr/color_on_main" />
 
         <com.google.android.material.textfield.TextInputLayout
-            style="?attr/textInputFilledStyle"
             android:id="@+id/search"
+            style="?attr/textInputFilledStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textColorHint="?attr/color_grey_200"
-            app:hintEnabled="false"
-            app:hintAnimationEnabled="false"
-            app:hintTextColor="?attr/color_grey_200"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
+            app:hintTextColor="?attr/color_grey_200"
             app:layout_constraintEnd_toStartOf="@id/clear_field"
             app:layout_constraintStart_toEndOf="@id/cancel_search"
             app:layout_constraintTop_toTopOf="parent">
@@ -139,27 +139,27 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textCursorDrawable="@null"
-                android:textColor="?attr/color_on_main"
-                android:textSize="16sp"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:paddingVertical="1dp"
-                android:imeOptions="actionSearch"
                 android:text="@={viewModel.searchFilter}"
-                android:background="@android:color/transparent" />
+                android:textColor="?attr/color_on_main"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/clear_field"
-            android:onClick="@{() -> viewModel.clearFilter()}"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="5dp"
+            android:contentDescription="@string/content_description_clear_filter"
+            android:onClick="@{() -> viewModel.clearFilter()}"
             android:paddingStart="15dp"
             android:paddingEnd="15dp"
             android:src="@drawable/x"
-            android:contentDescription="@string/content_description_clear_filter"
             app:layout_constraintBottom_toBottomOf="@id/search"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/search"
