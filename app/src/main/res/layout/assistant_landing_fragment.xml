@@ -201,7 +201,7 @@
                 android:onClick="@{thirdPartySipAccountLoginClickListener}"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:text="@string/assistant_login_third_party_sip_account"
+                android:text="Register"
                 android:textColor="#302E77"
                 android:visibility="@{viewModel.hideThirdPartyAccount ? View.GONE : View.VISIBLE}"
                 app:layout_constraintBottom_toBottomOf="parent"

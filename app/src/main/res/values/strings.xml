@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
 <!DOCTYPE resources [
-    <!ENTITY appName "MyMTL-SIP">
+    <!ENTITY appName "MTLVoice">
 ]>
 
 <resources>
-    <string name="app_name" translatable="false">MTL Mobile</string>
+    <string name="app_name" translatable="false">MTL Voice app</string>
 
     <!-- Not translatable strings -->
     <string name="vertical_separator" translatable="false">|</string>

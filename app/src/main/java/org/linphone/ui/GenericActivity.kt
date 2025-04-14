@@ -26,7 +26,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.ViewGroup
-// import android.view.WindowManager
+ import android.view.WindowManager
 import androidx.annotation.DrawableRes
 import androidx.annotation.MainThread
 import androidx.appcompat.app.AppCompatActivity
@@ -235,15 +235,15 @@ open class GenericActivity : AppCompatActivity() {
     }
 
     private fun enableWindowSecureMode(enable: Boolean) {
-//        val flags: Int = window.attributes.flags
-//        if ((enable && flags and WindowManager.LayoutParams.FLAG_SECURE != 0) ||
-//            (!enable && flags and WindowManager.LayoutParams.FLAG_SECURE == 0)
-//        ) {
-//            Log.d(
-//                "$TAG Secure flag is already ${if (enable) "enabled" else "disabled"}, skipping..."
-//            )
-//            return
-//        }
+        val flags: Int = window.attributes.flags
+        if ((enable && flags and WindowManager.LayoutParams.FLAG_SECURE != 0) ||
+            (!enable && flags and WindowManager.LayoutParams.FLAG_SECURE == 0)
+        ) {
+            Log.d(
+                "$TAG Secure flag is already ${if (enable) "enabled" else "disabled"}, skipping..."
+            )
+            return
+        }
 
         if (enable) {
             Log.i("$TAG Secure flag added to window")
