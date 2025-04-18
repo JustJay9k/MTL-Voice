@@ -3,6 +3,6 @@
         <item name="windowSplashScreenBackground">@color/bc_white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/mtl</item>
         <item name="postSplashScreenTheme">@style/Theme.Linphone</item>
-        <item name="android:windowSplashScreenBrandingImage">@drawable/logo1</item>
+<!--        <item name="android:windowSplashScreenBrandingImage">@drawable/logo1</item>-->
     </style>
 </resources>
