@@ -76,6 +76,7 @@ import org.linphone.utils.Event
 import org.linphone.utils.FileUtils
 import org.linphone.utils.LinphoneUtils
 
+@Suppress("DEPRECATION")
 @UiThread
 class MainActivity : GenericActivity() {
     companion object {

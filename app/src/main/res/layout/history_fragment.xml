@@ -54,18 +54,18 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <ImageView
-                android:onClick="@{menuClickListener}"
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:padding="15dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/dots_three_vertical"
                 android:contentDescription="@string/content_description_show_popup_menu"
-                app:tint="?attr/color_main2_500"
+                android:onClick="@{menuClickListener}"
+                android:padding="15dp"
+                android:src="@drawable/dots_three_vertical"
                 app:layout_constraintBottom_toBottomOf="@id/title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/title" />
+                app:layout_constraintTop_toTopOf="@id/title"
+                app:tint="#302E77" />
 
             <ScrollView
                 android:id="@+id/scrollView"
@@ -149,79 +149,84 @@
 
                     <ImageView
                         android:id="@+id/call"
-                        android:onClick="@{() -> viewModel.startAudioCall()}"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/circle_light_blue_button_background"
+                        android:backgroundTint="#302E77"
+                        android:contentDescription="@string/content_description_call_start"
+                        android:onClick="@{() -> viewModel.startAudioCall()}"
                         android:padding="16dp"
                         android:src="@drawable/phone"
-                        android:contentDescription="@string/content_description_call_start"
                         android:visibility="@{viewModel.isConferenceCallLog ? View.GONE : View.VISIBLE}"
-                        app:tint="?attr/color_main2_500"
                         app:layout_constraintEnd_toStartOf="@id/chat"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/status" />
+                        app:layout_constraintTop_toBottomOf="@id/status"
+                        app:tint="#FFFF00" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        style="@style/default_text_style"
                         android:id="@+id/call_label"
-                        android:onClick="@{() -> viewModel.startAudioCall()}"
+                        style="@style/default_text_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:onClick="@{() -> viewModel.startAudioCall()}"
                         android:text="@string/contact_call_action"
+                        android:textColor="#302E77"
                         android:textSize="14sp"
                         android:visibility="@{viewModel.isConferenceCallLog ? View.GONE : View.VISIBLE}"
-                        app:layout_constraintTop_toBottomOf="@id/call"
+                        app:layout_constraintEnd_toEndOf="@id/call"
                         app:layout_constraintStart_toStartOf="@id/call"
-                        app:layout_constraintEnd_toEndOf="@id/call"/>
+                        app:layout_constraintTop_toBottomOf="@id/call" />
 
                     <ImageView
                         android:id="@+id/chat"
-                        android:onClick="@{() -> viewModel.goToConversation()}"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/circle_light_blue_button_background"
+                        android:backgroundTint="#302E77"
+                        android:contentDescription="@string/content_description_chat_create"
+                        android:onClick="@{() -> viewModel.goToConversation()}"
                         android:padding="16dp"
                         android:src="@drawable/chat_teardrop_text"
-                        android:contentDescription="@string/content_description_chat_create"
                         android:visibility="@{viewModel.chatDisabled || viewModel.isConferenceCallLog ? View.GONE : View.VISIBLE}"
-                        app:tint="?attr/color_main2_500"
                         app:layout_constraintEnd_toStartOf="@id/video_call"
                         app:layout_constraintStart_toEndOf="@id/call"
-                        app:layout_constraintTop_toBottomOf="@id/status" />
+                        app:layout_constraintTop_toBottomOf="@id/status"
+                        app:tint="#FFFF00" />
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        style="@style/default_text_style"
                         android:id="@+id/chat_label"
-                        android:onClick="@{() -> viewModel.goToConversation()}"
+                        style="@style/default_text_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:onClick="@{() -> viewModel.goToConversation()}"
                         android:text="@string/contact_message_action"
+                        android:textColor="#302E77"
                         android:textSize="14sp"
                         android:visibility="@{viewModel.chatDisabled || viewModel.isConferenceCallLog ? View.GONE : View.VISIBLE}"
-                        app:layout_constraintTop_toBottomOf="@id/chat"
+                        app:layout_constraintEnd_toEndOf="@id/chat"
                         app:layout_constraintStart_toStartOf="@id/chat"
-                        app:layout_constraintEnd_toEndOf="@id/chat"/>
+                        app:layout_constraintTop_toBottomOf="@id/chat" />
 
                     <ImageView
                         android:id="@+id/video_call"
-                        android:onClick="@{() -> viewModel.startVideoCall()}"
                         android:layout_width="56dp"
                         android:layout_height="56dp"
                         android:layout_marginTop="20dp"
                         android:background="@drawable/circle_light_blue_button_background"
+                        android:backgroundTint="#302E77"
+                        android:contentDescription="@string/content_description_call_start_video"
+                        android:onClick="@{() -> viewModel.startVideoCall()}"
                         android:padding="16dp"
                         android:src="@drawable/video_camera"
-                        android:contentDescription="@string/content_description_call_start_video"
                         android:visibility="@{viewModel.videoCallDisabled || viewModel.isConferenceCallLog ? View.GONE : View.VISIBLE}"
-                        app:tint="?attr/color_main2_500"
-                        app:layout_constraintStart_toEndOf="@id/chat"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/status" />
+                        app:layout_constraintStart_toEndOf="@id/chat"
+                        app:layout_constraintTop_toBottomOf="@id/status"
+                        app:tint="#FFFF00" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         style="@style/default_text_style"

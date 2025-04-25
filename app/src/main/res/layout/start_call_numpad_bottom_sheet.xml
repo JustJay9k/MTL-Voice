@@ -179,22 +179,23 @@
 
         <ImageView
             android:id="@+id/call"
-            android:onClick="@{() -> model.onCallClicked()}"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/call_button_size"
+            android:background="@drawable/squircle_green_button_background"
+            android:backgroundTint="#FFFF00"
+            android:contentDescription="@string/content_description_call_start"
+            android:elevation="3dp"
+            android:onClick="@{() -> model.onCallClicked()}"
             android:paddingStart="30dp"
             android:paddingTop="15dp"
             android:paddingEnd="30dp"
             android:paddingBottom="15dp"
             android:src="@drawable/phone"
-            android:contentDescription="@string/content_description_call_start"
-            android:elevation="3dp"
-            android:background="@drawable/squircle_green_button_background"
-            app:tint="@color/bc_white"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/digit_0"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:tint="#302E77" />
 
         <ImageView
             android:id="@+id/backspace"

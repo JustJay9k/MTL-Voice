@@ -19,11 +19,9 @@
  */
 package org.linphone.ui.welcome
 
-// import android.widget.TextView
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
+import android.view.View
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
@@ -35,6 +33,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import org.linphone.R
+import org.linphone.core.tools.Log
 import org.linphone.databinding.WelcomeActivityBinding
 import org.linphone.ui.GenericActivity
 import org.linphone.ui.assistant.AssistantActivity
@@ -65,9 +64,6 @@ class WelcomeActivity : GenericActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.welcome_activity)
         binding.lifecycleOwner = this
 
-        binding = WelcomeActivityBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.updatePadding(insets.left, insets.top, insets.right, insets.bottom)
@@ -79,6 +75,11 @@ class WelcomeActivity : GenericActivity() {
         viewPager.adapter = pagerAdapter
 
         binding.dotsIndicator.attachTo(viewPager)
+
+        binding.setSkipClickListener {
+            Log.i("$TAG User clicked on 'skip' button, going to Assistant")
+            goToAssistant()
+        }
 
         binding.setNextClickListener {
             if (viewPager.currentItem == PAGES - 1) {
@@ -102,11 +103,6 @@ class WelcomeActivity : GenericActivity() {
         super.onPause()
     }
 
-    override fun onDestroy() {
-        viewPager.unregisterOnPageChangeCallback(pageChangedCallback)
-        super.onDestroy()
-    }
-
     private fun goToAssistant() {
         finish()
         val intent = Intent(this, AssistantActivity::class.java)
@@ -122,6 +118,7 @@ class WelcomeActivity : GenericActivity() {
                 0 -> WelcomePage1Fragment()
                 1 -> WelcomePage2Fragment()
                 else -> WelcomePage3Fragment()
+
             }
         }
     }
@@ -130,9 +127,11 @@ class WelcomeActivity : GenericActivity() {
         override fun onPageSelected(position: Int) {
             Log.i(TAG, "$TAG Current page is [$position]")
             if (position == PAGES - 1) {
-                (binding.next as Button).text = AppUtils.getString(R.string.start)
+                binding.pushNext.text = AppUtils.getString(R.string.start)
+                binding.skip.visibility = View.INVISIBLE
             } else {
-                (binding.next as Button).text = AppUtils.getString(R.string.next)
+                binding.pushNext.text = AppUtils.getString(R.string.next)
+                binding.skip.visibility = View.INVISIBLE
             }
         }
     }

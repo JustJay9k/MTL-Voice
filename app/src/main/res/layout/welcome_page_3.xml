@@ -98,7 +98,7 @@
             android:onClick="@{nextClickListener}"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:text="Next"
+            android:text="@string/start"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

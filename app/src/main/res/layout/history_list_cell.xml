@@ -80,18 +80,20 @@
             app:layout_constraintBottom_toTopOf="@id/separator"/>
 
         <ImageView
-            android:onClick="@{onCallClickListener}"
             android:id="@+id/call"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_marginEnd="6dp"
-            android:src="@drawable/phone"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
             android:contentDescription="@string/content_description_call_start"
-            app:tint="?attr/color_main2_500"
+            android:onClick="@{onCallClickListener}"
+            android:src="@drawable/phone"
             android:visibility="@{model.wasConference ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@id/date_time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/name"
-            app:layout_constraintBottom_toBottomOf="@id/date_time" />
+            app:tint="#302E77" />
 
         <View
             android:id="@+id/separator"

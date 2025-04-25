@@ -59,19 +59,20 @@
 
         <ImageView
             android:id="@+id/toast_icon"
+            disableTint="@{do_not_tint}"
+            tint="@{text_color}"
             android:layout_width="@dimen/icon_size"
             android:layout_height="@dimen/icon_size"
             android:layout_marginStart="25dp"
             android:adjustViewBounds="true"
-            android:src="@{icon, default=@drawable/check}"
+            android:background="#FFFFFF"
             android:contentDescription="@null"
-            tint="@{text_color}"
-            disableTint="@{do_not_tint}"
+            android:src="@{icon, default=@drawable/check}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/toast_message"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_chainStyle="packed" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/toast_message"

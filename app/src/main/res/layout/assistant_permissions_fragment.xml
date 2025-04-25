@@ -238,6 +238,7 @@
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
                 android:text="Allow Access"
+                android:textColor="#FFFF00"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"

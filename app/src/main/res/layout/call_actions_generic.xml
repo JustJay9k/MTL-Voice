@@ -28,22 +28,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:onClick="@{() -> viewModel.hangUp()}"
             android:id="@+id/hang_up"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/call_button_size"
             android:layout_marginStart="16dp"
+            android:background="@drawable/squircle_red_button_background"
+            android:backgroundTint="#F44336"
+            android:contentDescription="@string/content_description_hang_up_call"
+            android:onClick="@{() -> viewModel.hangUp()}"
             android:paddingStart="30dp"
-            android:paddingEnd="30dp"
             android:paddingTop="15dp"
+            android:paddingEnd="30dp"
             android:paddingBottom="15dp"
             android:src="@drawable/phone_disconnect"
-            android:contentDescription="@string/content_description_hang_up_call"
-            android:background="@drawable/squircle_red_button_background"
-            app:tint="@color/bc_white"
-            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
+            app:tint="@color/bc_white" />
 
         <ImageView
             android:onClick="@{() -> viewModel.toggleVideo()}"
@@ -69,46 +70,49 @@
             android:id="@+id/video_update_in_progress"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="@{viewModel.videoUpdateInProgress ? View.VISIBLE : View.GONE}"
+            android:backgroundTint="#302E77"
             android:indeterminate="true"
-            app:indicatorColor="?attr/color_main1_500"
-            app:layout_constraintTop_toTopOf="@id/toggle_video"
+            android:visibility="@{viewModel.videoUpdateInProgress ? View.VISIBLE : View.GONE}"
+            app:indicatorColor="#302E77"
             app:layout_constraintBottom_toBottomOf="@id/toggle_video"
+            app:layout_constraintEnd_toEndOf="@id/toggle_video"
             app:layout_constraintStart_toStartOf="@id/toggle_video"
-            app:layout_constraintEnd_toEndOf="@id/toggle_video"/>
+            app:layout_constraintTop_toTopOf="@id/toggle_video" />
 
         <ImageView
-            android:onClick="@{() -> viewModel.toggleMuteMicrophone()}"
             android:id="@+id/toggle_mute_mic"
             android:layout_width="@dimen/call_button_size"
             android:layout_height="@dimen/call_button_size"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/in_call_button_background_red"
+            android:backgroundTint="#302E77"
+            android:contentDescription="@string/content_description_toggle_microphone"
+            android:onClick="@{() -> viewModel.toggleMuteMicrophone()}"
             android:padding="@dimen/call_button_icon_padding"
             android:selected="@{viewModel.isMicrophoneMuted}"
             android:src="@{viewModel.isMicrophoneMuted ? @drawable/microphone_slash : @drawable/microphone, default=@drawable/microphone}"
-            android:background="@drawable/in_call_button_background_red"
-            android:contentDescription="@string/content_description_toggle_microphone"
-            app:tint="@color/in_call_button_tint_color"
-            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/change_audio_output"
             app:layout_constraintStart_toEndOf="@id/toggle_video"
-            app:layout_constraintEnd_toStartOf="@id/change_audio_output" />
+            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
+            app:tint="#FFFF00" />
 
         <ImageView
-            android:onClick="@{() -> viewModel.changeAudioOutputDevice()}"
             android:id="@+id/change_audio_output"
             android:layout_width="@dimen/call_button_size"
             android:layout_height="@dimen/call_button_size"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/in_call_button_background_red"
+            android:backgroundTint="#302E77"
+            android:contentDescription="@string/content_description_change_output_audio_device"
+            android:onClick="@{() -> viewModel.changeAudioOutputDevice()}"
             android:padding="@dimen/call_button_icon_padding"
             android:src="@{viewModel.isHeadsetEnabled ? @drawable/headset : viewModel.isBluetoothEnabled ? @drawable/bluetooth : viewModel.isSpeakerEnabled ? @drawable/speaker_high : @drawable/speaker_slash, default=@drawable/speaker_slash}"
-            android:background="@drawable/in_call_button_background_red"
-            android:contentDescription="@string/content_description_change_output_audio_device"
-            app:tint="@color/in_call_button_tint_color"
-            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/toggle_mute_mic"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/call_actions_handle"
+            app:tint="#FFFF00" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

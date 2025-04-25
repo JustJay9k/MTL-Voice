@@ -82,7 +82,7 @@
                 android:layout_marginTop="15dp"
                 android:text="@{viewModel.displayedName, default=`John Doe`}"
                 android:textSize="22sp"
-                android:textColor="@color/bc_white"
+                android:textColor="#FFFFFF"
                 android:visibility="@{viewModel.pipMode || viewModel.halfOpenedFolded ? View.GONE : View.VISIBLE}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -90,19 +90,19 @@
                 app:layout_constraintBottom_toTopOf="@id/address"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/default_text_style"
                 android:id="@+id/address"
+                style="@style/default_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="@{viewModel.displayedAddress, default=`sip:johndoe@sip.linphone.org`}"
-                android:textColor="@color/bc_white"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:visibility="@{viewModel.pipMode || viewModel.halfOpenedFolded ? View.GONE : View.VISIBLE}"
-                app:layout_constraintTop_toBottomOf="@id/display_name"
                 app:layout_constraintBottom_toBottomOf="@id/hinge_bottom"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/display_name" />
 
             <org.linphone.ui.call.view.RoundCornersTextureView
                 android:id="@+id/remote_video_surface"
@@ -126,55 +126,58 @@
 
             <ImageView
                 android:id="@+id/back"
-                android:onClick="@{backClickListener}"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/top_bar_height"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/content_description_go_back_icon"
+                android:onClick="@{backClickListener}"
                 android:padding="15dp"
                 android:src="@drawable/caret_left"
-                android:contentDescription="@string/content_description_go_back_icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/hinge_top"
-                app:tint="@color/bc_white" />
+                app:tint="#FFFFFF" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/call_header_style"
                 android:id="@+id/name"
+                style="@style/call_header_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{viewModel.displayedName, default=`John Doe`}"
-                android:maxLines="1"
                 android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{viewModel.displayedName, default=`John Doe`}"
+                android:textColor="#FFFFFF"
                 app:layout_constrainedWidth="true"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toEndOf="@id/back"
+                app:layout_constraintBottom_toBottomOf="@id/back"
                 app:layout_constraintEnd_toStartOf="@id/separator"
-                app:layout_constraintTop_toTopOf="@id/back"
-                app:layout_constraintBottom_toBottomOf="@id/back"/>
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/back"
+                app:layout_constraintTop_toTopOf="@id/back" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/call_header_style"
                 android:id="@+id/separator"
+                style="@style/call_header_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:text="@string/vertical_separator"
-                app:layout_constraintTop_toTopOf="@id/name"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toStartOf="@id/chronometer"
                 app:layout_constraintStart_toEndOf="@id/name"
-                app:layout_constraintEnd_toStartOf="@id/chronometer"/>
+                app:layout_constraintTop_toTopOf="@id/name" />
 
             <Chronometer
-                style="@style/call_header_style"
                 android:id="@+id/chronometer"
+                style="@style/call_header_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:textColor="#FFFFFF"
                 android:visibility="@{viewModel.fullScreenMode || viewModel.pipMode || viewModel.isPaused || viewModel.isPausedByRemote ? View.GONE : View.VISIBLE}"
-                app:layout_constraintStart_toEndOf="@id/separator"
                 app:layout_constraintEnd_toStartOf="@id/paused_call_header"
-                app:layout_constraintTop_toTopOf="@id/name"/>
+                app:layout_constraintStart_toEndOf="@id/separator"
+                app:layout_constraintTop_toTopOf="@id/name" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/call_header_style"
